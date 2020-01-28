@@ -16,7 +16,8 @@ start:
 	&& kubectl apply -f kibana-deployment.yaml
 
 stop:
-	kubectl delete pods --all
+	kubectl delete -f kibana-deployment.yaml \
+	&& kubectl delete -f elasticsearch-deployment.yaml
 
 clean:
 	kubectl delete -f kibana-deployment.yaml \
